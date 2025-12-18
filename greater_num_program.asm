@@ -25,13 +25,14 @@ main proc
     
     mov ah,1
     int 21h
+    mov cl,al
     
     call newline
     
-    cmp bl,al        
+    cmp bl,cl        
     jg greaterNum
     
-    cmp al,bl            
+    cmp cl,bl            
     jg greaterNum_two
     
     
@@ -55,11 +56,11 @@ greaterNum proc
     greaterNum endp
 
 greaterNum_two proc
-    mov dx,offset msg4
+    mov dx,offset msg1
     mov ah,9
     int 21h
     
-    mov dl,al
+    mov dl,cl
     mov ah,2
     int 21h
     
